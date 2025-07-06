@@ -1,0 +1,210 @@
+/* Reset & Base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #000;
+  color: #000;
+}
+
+a {
+  color: #00bcd4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.app {
+  width: 100%;
+  
+  background-color: #e0e0e0; /* soft light gray */
+  color: #000; /* keep text readable */
+}
+
+/* Container & Sections */
+.container {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section {
+  margin: 60px 0;
+}
+
+h1, h2, h3 {
+  /* color: #fff; */
+}
+h1{
+    color: white;
+}
+
+p, li {
+  /* color: #ccc; */
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #1c1c1c, #000);
+  padding: 120px 20px 100px;
+  text-align: center;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero .overlay {
+  position: relative;
+  z-index: 1;
+  padding: 120px 20px 100px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5); /* darken video */
+}
+.video-bg {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.video-bg .overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5); /* Optional dark overlay to improve text contrast */
+  padding: 0 20px;
+}
+
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+  display: inline-block;
+  background: #00bcd4;
+  color: #000;
+  padding: 12px 24px;
+  margin: 0 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.hero-buttons .btn.secondary {
+  background: transparent;
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+}
+
+.hero-buttons .btn:hover {
+  background: #0097a7;
+  color: #fff;
+}
+
+/* About Section */
+.about-grid {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 100px;
+  object-fit: cover;
+  border: 3px solid #00bcd4;
+}
+
+/* Media Section */
+.media-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.media-card {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+audio, video {
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+/* Experience Section */
+.experience-list li {
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #222;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .profile-pic {
+    margin-bottom: 20px;
+    width: 180px;
+  height: 180px;
+  border-radius: 100px;
+  object-fit: cover;
+  border: 3px solid #00bcd4;
+  }
+
+  .about-grid {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
