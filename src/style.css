@@ -78,27 +78,28 @@ p, li {
   overflow: hidden;
 }
 
-.bg-video {
+.bg-hero-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   z-index: 0;
 }
 
-.video-bg .overlay {
+.hero-bg .overlay {
   position: relative;
   z-index: 1;
-  height: 100%;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   background: rgba(0, 0, 0, 0.5); /* Optional dark overlay to improve text contrast */
-  padding: 0 20px;
+  padding: 0 0px;
+  margin-top: 0%;
 }
 
 
@@ -144,9 +145,9 @@ p, li {
 }
 
 .profile-pic {
-  width: 180px;
-  height: 180px;
-  border-radius: 100px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
   object-fit: cover;
   border: 3px solid #00bcd4;
 }
@@ -207,4 +208,7 @@ audio, video {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+.radio-demo{
+  color: #f9f9f9;
 }
