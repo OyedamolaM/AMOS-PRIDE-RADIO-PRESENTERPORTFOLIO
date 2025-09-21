@@ -119,7 +119,7 @@ export default function App() {
               <h3>TV-Ready Video Intro</h3>
               <video controls>
                 <source
-                  src="/video/sample_video.mp4"
+                  src="/video/Amos_sample_video.mp4"
                   type="video/mp4"
                 />
               </video>
