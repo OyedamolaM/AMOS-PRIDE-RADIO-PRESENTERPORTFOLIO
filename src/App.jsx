@@ -55,7 +55,7 @@ export default function App() {
         <img
           className="bg-hero-image"
           alt="Hero background"
-          src="/images/hero-bg-desktop.png"
+          src="/images/hero-bg-desktop.jpg"
         />
         <div className="overlay">
           <h1 className="hero-title">Hi, I'm Oluwafemi Pride Amos</h1>
