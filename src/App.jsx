@@ -59,7 +59,7 @@ export default function App() {
         />
         <div className="overlay">
           <h1 className="hero-title">Hi, I'm Oluwafemi Pride Amos</h1>
-          <p className="hero-subtitle">Radio Voice, TV-Ready Presence</p>
+          <p className="hero-subtitle">Radio Voice, TV-Ready Presence Events Host</p>
           <div className="hero-buttons">
             <a href="#media" className="btn">
               🎧 Listen
@@ -204,7 +204,7 @@ export default function App() {
 </ul>
 
 <h3>Education</h3>
-<p>B.Sc. Information Technology, National Open University of Nigeria, Akure, Ondo State, 2019 (Certificate received and dated March 2023)</p>
+<p>B.Sc. Information Technology, National Open University of Nigeria, Akure, Ondo State.</p>
 
         {/* Contact Section */}
         <section className="section" id="contact">
