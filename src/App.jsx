@@ -266,7 +266,7 @@ export default function App() {
               </div>
 
               <div className="story-body">
-                {introParagraphs.slice(0, 2).map((paragraph) => (
+                {introParagraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
