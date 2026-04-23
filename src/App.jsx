@@ -20,7 +20,7 @@ const mediaItems = [
     title: "Presenter Reel",
     type: "video",
     src: "/video/Amos_sample_video.mp4",
-    poster: "/images/hero-bg-desktop.jpg",
+    poster: "/images/profile-picture.png",
     caption:
       "A concise reel showing on-camera presence, voice control, and confidence suited to booking review.",
   },
