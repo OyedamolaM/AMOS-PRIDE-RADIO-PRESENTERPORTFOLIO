@@ -159,8 +159,13 @@ select {
   min-height: min(100svh, 940px);
   display: flex;
   align-items: center;
-  background: url("/images/hero-bg-desktop.jpg") center 12% / cover no-repeat;
+  background: url("/images/hero_bg.jpeg") center 12% / cover no-repeat;
   color: var(--cream);
+}
+@media(max-width: 768px) {
+  .hero-section {
+    background: url("/images/hero_bg_mobile.jpeg") center 50% / cover no-repeat !important;
+  }
 }
 
 .hero-overlay {
@@ -1030,8 +1035,10 @@ select {
   .hero-stage {
     justify-items: center;
     text-align: center;
+    align-content: end;
     min-height: 88svh;
-    padding-top: 6.2rem;
+    padding-top: 8.6rem;
+    padding-bottom: 2.5rem;
   }
 
   .hero-wordmark {
@@ -1125,6 +1132,17 @@ select {
 
   .site-footer__inner {
     display: grid;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    background-position: center 4%;
+  }
+
+  .hero-stage {
+    padding-top: 9.4rem;
+    padding-bottom: 2.2rem;
   }
 }
 
