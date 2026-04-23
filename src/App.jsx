@@ -25,18 +25,6 @@ const mediaItems = [
       "A concise reel showing on-camera presence, voice control, and confidence suited to booking review.",
   },
   {
-    title: "Afternoon Cruise",
-    type: "audio",
-    src: "/audio/afternoon-cruise.mp3",
-    caption: "Drive-time sample focused on pacing, connection, and steady live presentation.",
-  },
-  {
-    title: "Friday Cruise",
-    type: "audio",
-    src: "/audio/friday-cruise.mp3",
-    caption: "Broadcast segment that highlights warmth, control, and audience-facing flow.",
-  },
-  {
     title: "On-Air Clip 02",
     type: "audio",
     src: "/audio/rot-2.mp3",
@@ -47,6 +35,18 @@ const mediaItems = [
     type: "audio",
     src: "/audio/rto-1.mp3",
     caption: "A focused clip built around clean projection and presenter discipline.",
+  },
+  {
+    title: "Friday Cruise",
+    type: "audio",
+    src: "/audio/friday-cruise.mp3",
+    caption: "Broadcast segment that highlights warmth, control, and audience-facing flow.",
+  },
+  {
+    title: "Afternoon Cruise",
+    type: "audio",
+    src: "/audio/afternoon-cruise.mp3",
+    caption: "Drive-time sample focused on pacing, connection, and steady live presentation.",
   },
   {
     title: "On-Air Clip 04",
