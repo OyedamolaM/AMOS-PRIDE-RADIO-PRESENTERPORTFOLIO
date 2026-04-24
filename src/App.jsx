@@ -71,6 +71,29 @@ const mediaItems = [
   },
 ];
 
+const galleryItems = [
+  {
+    src: "/images/profile-picture.png",
+    alt: "Portrait of Oluwafemi Pride Amos",
+    caption: "Signature portrait",
+  },
+  {
+    src: "/images/ES_LOVE 2026.jpeg",
+    alt: "Oluwafemi Pride Amos at a wedding celebration in Lagos",
+    caption: "Wedding welcome",
+  },
+  {
+    src: "/images/ES_LOVE_2026.jpeg",
+    alt: "Oluwafemi Pride Amos engaging guests at ES LOVE 2026",
+    caption: "Crowd connection",
+  },
+  {
+    src: "/images/Akure_Events.jpeg",
+    alt: "Oluwafemi Pride Amos on stage in Akure",
+    caption: "Stage confidence",
+  },
+];
+
 const experienceEntries = [
   {
     role: "Deputy Team Lead, Programs",
@@ -144,6 +167,7 @@ const contactLinks = [
 export default function App() {
   const workMediaSectionRef = useRef(null);
   const firstAudioRef = useRef(null);
+  const galleryTrackRef = useRef(null);
   const hasAutoPlayedFirstClipRef = useRef(false);
   const isWorkMediaVisibleRef = useRef(false);
 
@@ -229,6 +253,20 @@ export default function App() {
   const featuredVideo = mediaItems.find((item) => item.type === "video");
   const audioItems = mediaItems.filter((item) => item.type === "audio");
   const selectedExperience = experienceEntries.slice(0, 2);
+  const scrollGallery = (direction) => {
+    const galleryTrack = galleryTrackRef.current;
+
+    if (!galleryTrack) {
+      return;
+    }
+
+    const scrollAmount = Math.max(galleryTrack.clientWidth * 0.82, 280);
+
+    galleryTrack.scrollBy({
+      left: direction === "next" ? scrollAmount : -scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="app-shell">
@@ -244,6 +282,7 @@ export default function App() {
             <a href="#story">Story</a>
             <a href="#events">Events</a>
             <a href="#work">Work</a>
+            <a href="#gallery">Gallery</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
@@ -413,6 +452,45 @@ export default function App() {
           </div>
         </section>
 
+        <section className="gallery-section" id="gallery">
+          <div className="container section-container gallery-section__inner">
+            <div className="gallery-header">
+              <div className="gallery-section__copy">
+                <p className="section-label">Gallery</p>
+                <p>A quick look at moments on stage and on camera.</p>
+              </div>
+
+              <div className="gallery-controls" aria-label="Gallery controls">
+                <button
+                  className="gallery-control"
+                  type="button"
+                  onClick={() => scrollGallery("previous")}
+                >
+                  Prev
+                </button>
+                <button
+                  className="gallery-control"
+                  type="button"
+                  onClick={() => scrollGallery("next")}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <div className="gallery-grid" ref={galleryTrackRef}>
+              {galleryItems.map((item) => (
+                <figure className="gallery-card" key={item.src}>
+                  <img alt={item.alt} loading="lazy" src={item.src} />
+                  <figcaption>
+                    <strong>{item.caption}</strong>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="contact-section" id="contact">
           <div className="container section-container contact-grid">
             <div className="contact-copy">
@@ -438,43 +516,6 @@ export default function App() {
             </div>
           </div>
         </section>
-
-        {/* <section className="gallery-section" id="gallery">
-          <div className="container section-container gallery-section__inner">
-            <div className="gallery-section__copy">
-              <p className="section-label">Gallery</p>
-              <h2>Selected visuals for profile review.</h2>
-              <p>
-                A short gallery of key portrait and media assets. On mobile, you can slide through the cards.
-              </p>
-            </div>
-
-            <div className="gallery-grid">
-              {galleryItems.map((item) => (
-                <figure className="gallery-card" key={`${item.type}-${item.title}`}>
-                  <span className="gallery-card__badge">{item.eventLabel}</span>
-                  {item.type === "image" ? (
-                    <img src={item.src} alt={item.title} loading="lazy" />
-                  ) : (
-                    <video
-                      controls
-                      playsInline
-                      preload="metadata"
-                      poster={item.poster}
-                      aria-label={item.title}
-                    >
-                      <source src={item.src} type="video/mp4" />
-                    </video>
-                  )}
-                  <figcaption>
-                    <strong>{item.title}</strong>
-                    <span>{item.caption}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section> */}
       </main>
 
       <footer className="site-footer">
