@@ -126,7 +126,7 @@ const contactLinks = [
   {
     label: "Phone / WhatsApp",
     value: "+234 803 496 1284",
-    href: "tel:+2348034961284",
+    href: "https://wa.link/u08ut7",
   },
   {
     label: "Email",
@@ -429,7 +429,7 @@ export default function App() {
                   href={item.href}
                   key={item.label}
                   rel={item.external ? "noreferrer" : undefined}
-                  target={item.external ? "_blank" : undefined}
+                  target="_blank"
                 >
                   <span>{item.label}</span>
                   <strong>{item.value}</strong>
