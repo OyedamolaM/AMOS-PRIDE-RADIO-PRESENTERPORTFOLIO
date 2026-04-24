@@ -7,13 +7,28 @@ const introParagraphs = [
   "He has led conversations with public figures, moderated discussions, and delivered voice work for commercials, documentaries, and branded media. He brings that same energy, charisma, and stage presence to every occasion.",
 ];
 
-
-// const eventHostingFormats = [
-//   "Political symposiums and civic conversations",
-//   "Conference hosting and panel moderation",
-//   "Corporate ceremonies and official programmes",
-//   "Broadcast-linked live events and audience activations",
-// ];
+const eventHighlights = [
+  {
+    city: "Lagos",
+    period: "Feb 2026",
+    image: "/images/ES_LOVE_2026.jpeg",
+    alt: "Oluwafemi Pride Amos at ES_LOVE 2026 in Lagos",
+    label: "ES LOVE",
+    summary:
+      "Amos Pride brought warmth and elegance to the wedding, keeping guests engaged while maintaining a lively and respectful atmosphere.",
+    tags: ["Hosting", "Timing", "Flow"],
+  },
+  {
+    city: "Akure",
+    period: "Nov 2025",
+    image: "/images/Akure_Events.jpeg",
+    alt: "Oluwafemi Pride Amos at a featured event appearance in Akure",
+    label: "QE 2025",
+    summary:
+      "Amos Pride delivered a flawless performance, blending charm, humor, and elegance to create a truly unforgettable wedding experience.",
+    tags: ["MC", "Audience", "Presence"],
+  },
+];
 
 const mediaItems = [
   {
@@ -64,7 +79,6 @@ const experienceEntries = [
     summary:
       "Leads high-visibility live programming while balancing editorial discipline, audience engagement, and production coordination.",
     highlights: [
-      "Hosted and moderated flagship drive-time programming with a steady live presence.",
       "Developed and delivered high-energy content that strengthened listener loyalty and station engagement.",
       "Collaborated with production teams on show concepts, promotional ideas, and broadcast execution.",
       "Conducted more than 200 interviews with public figures, cultural voices, and notable guests.",
@@ -228,9 +242,9 @@ export default function App() {
 
           <nav className="site-nav" aria-label="Primary">
             <a href="#story">Story</a>
+            <a href="#events">Events</a>
             <a href="#work">Work</a>
             <a href="#contact">Contact</a>
-            <a href="#gallery">Gallery</a>
           </nav>
         </div>
       </header>
@@ -288,6 +302,52 @@ export default function App() {
           </div>
         </section>
 
+        <section className="events-section" id="events">
+          <div className="container section-container">
+            <div className="events-shell">
+              <div className="events-header">
+                <div className="events-heading">
+                  <p className="section-label">Featured Events</p>
+                </div>
+
+                <p className="events-intro">
+                  Bringing elegance, energy, and seamless flow to every celebration
+                </p>
+              </div>
+
+              <div className="events-grid">
+                {eventHighlights.map((event) => (
+                  <article className="event-card" key={`${event.city}-${event.period}`}>
+                    <div className="event-card__media">
+                      <span className="event-card__badge">{event.label}</span>
+                      <img alt={event.alt} loading="lazy" src={event.image} />
+                    </div>
+
+                    <div className="event-card__content">
+                      <div className="event-card__meta">
+                        <span className="event-chip">{event.city}</span>
+                        <span className="event-chip">{event.period}</span>
+                      </div>
+
+                      <div className="event-card__copy">
+                        <p>{event.summary} <br /><strong>{event.label}</strong></p>
+                      </div>
+
+                      <div className="event-card__tags" aria-label={`${event.label} highlights`}>
+                        {event.tags.map((tag) => (
+                          <span className="event-card__tag" key={tag}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="work-section" id="work">
           <div className="container section-container">
             <div className="work-heading">
@@ -302,7 +362,7 @@ export default function App() {
                   <p className="experience-card__org">{entry.organization}</p>
                   <p>{entry.summary}</p>
                   <ul className="editorial-list">
-                    {entry.highlights.slice(0, index === 0 ? 3 : 2).map((highlight) => (
+                    {entry.highlights.slice(0, index === 0 ? 3 : 3).map((highlight) => (
                       <li key={highlight}>{highlight}</li>
                     ))}
                   </ul>
