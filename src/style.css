@@ -750,7 +750,7 @@ select {
 }
 
 .spotlight-section {
-  padding: 2rem 0 clamp(3rem, 7vw, 5rem);
+  padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(2.5rem, 6vw, 4rem);
 }
 
 .spotlight-grid {
@@ -766,14 +766,16 @@ select {
 }
 
 .spotlight-copy h2 {
-  font-size: clamp(2.6rem, 5vw, 4.25rem);
+  max-width: 22ch;
+  font-size: clamp(1.8rem, 2.2vw, 2.55rem);
   color: var(--ink);
+  line-height: 1.08;
 }
 
 .spotlight-copy p:not(.section-label) {
   margin: 0;
   color: var(--ink-soft);
-  font-size: 1.08rem;
+  font-size: clamp(0.98rem, 0.22vw + 0.94rem, 1.05rem);
 }
 
 .spotlight-card {
@@ -1389,6 +1391,16 @@ select {
   .audio-panel h3,
   .contact-copy h2 {
     font-size: clamp(2.25rem, 10vw, 3.8rem);
+  }
+
+  .spotlight-copy h2 {
+    max-width: 20ch;
+    font-size: clamp(1.65rem, 6vw, 2rem);
+  }
+
+  .spotlight-copy p:not(.section-label),
+  .spotlight-section .editorial-list li {
+    font-size: 0.95rem;
   }
 
   .story-stats,

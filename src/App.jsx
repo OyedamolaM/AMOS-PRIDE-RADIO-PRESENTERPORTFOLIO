@@ -1,10 +1,18 @@
 import { useEffect, useRef } from "react";
+import { trackEvent } from "./analytics.js";
 
 
 const introParagraphs = [
-  "Amos is a seasoned radio presenter and events host, with over 8 years of experience in live broadcasting, audience engagement, storytelling, and event hosting. He has built a strong reputation for delivering compelling on-air experiences while also bringing structure and energy to live events and public engagements.",
-  "Across more than eight years on air, Amos has hosted prime-time shows, interviewed influential personalities, and built a loyal listener base. Beyond the studio, he has successfully hosted and coordinated events across multiple cities, including Lagos, Abuja, Ogun, and Akure, engaging diverse audiences with confidence, clarity, and professionalism.",
-  "He has led conversations with public figures, moderated discussions, and delivered voice work for commercials, documentaries, and branded media. He brings that same energy, charisma, and stage presence to every occasion.",
+  "Oluwafemi Pride Amos is a professional MC, wedding compere, event host, radio presenter, and moderator with over 8 years of experience commanding live audiences with warmth, structure, and confidence.",
+  "He is available for weddings, ceremonies, conferences, corporate events, political symposiums, brand activations, and audience-facing live programs across Nigeria. Amos has hosted and coordinated events across Lagos, Abuja, Ogun, and Akure, keeping each program elegant, energetic, and on schedule.",
+  "As an MC, he blends broadcast discipline with stage presence: clear introductions, smooth transitions, audience engagement, respectful humor, and the calm control every successful event needs.",
+];
+
+const bookingServices = [
+  "Wedding MC and reception compere",
+  "Corporate event host and brand activation anchor",
+  "Conference, panel, and symposium moderator",
+  "Ceremony host for awards, launches, and public programs",
 ];
 
 const eventHighlights = [
@@ -148,7 +156,7 @@ export default function App() {
   const isWorkMediaVisibleRef = useRef(false);
 
   useEffect(() => {
-    document.title = "Oluwafemi Pride Amos | Broadcast Presenter and Event Host";
+    document.title = "Book Amos Pride | Professional MC, Event Host and Wedding Compere";
 
     const mediaElements = Array.from(document.querySelectorAll("audio, video"));
     const listeners = mediaElements.map((mediaElement) => {
@@ -226,6 +234,19 @@ export default function App() {
     };
   }, []);
 
+  const handleMediaPlay = (item) => {
+    trackEvent("media_play", {
+      media_title: item.title,
+      media_type: item.type,
+    });
+  };
+
+  const handleContactClick = (item) => {
+    trackEvent("contact_click", {
+      contact_method: item.label,
+    });
+  };
+
   const featuredVideo = mediaItems.find((item) => item.type === "video");
   const audioItems = mediaItems.filter((item) => item.type === "audio");
   const selectedExperience = experienceEntries.slice(0, 2);
@@ -242,6 +263,7 @@ export default function App() {
 
           <nav className="site-nav" aria-label="Primary">
             <a href="#story">Story</a>
+            <a href="#services">Services</a>
             <a href="#events">Events</a>
             <a href="#work">Work</a>
             <a href="#contact">Contact</a>
@@ -254,11 +276,11 @@ export default function App() {
           <div className="hero-overlay"></div>
           <div className="container section-container hero-stage">
             <div className="hero-lockup">
-              <h1 className="hero-wordmark">AMOS</h1>
+              <h1 className="hero-wordmark" aria-label="Book Amos Pride, professional MC and event host">AMOS</h1>
               <p className="hero-wordmark-sub">Pride</p>
             </div>
             <p className="hero-tagline">
-              Events | Broadcast | Ceremonies
+              Professional MC | Wedding Compere | Event Host
             </p>
 
             <div className="hero-actions">
@@ -276,7 +298,7 @@ export default function App() {
           <div className="container section-container story-grid">
             <div className="story-copy">
               <div className="story-lead">
-                <h3 className="section-label">About</h3>
+                <p className="section-label">Book a Professional MC</p>
               </div>
 
               <div className="story-body">
@@ -294,6 +316,7 @@ export default function App() {
                   preload="metadata"
                   poster={featuredVideo.poster}
                   aria-label={featuredVideo.title}
+                  onPlay={() => handleMediaPlay(featuredVideo)}
                 >
                   <source src={featuredVideo.src} type="video/mp4" />
                 </video>
@@ -302,16 +325,36 @@ export default function App() {
           </div>
         </section>
 
+        <section className="spotlight-section" id="services">
+          <div className="container section-container spotlight-grid">
+            <div className="spotlight-copy">
+              <p className="section-label">MC Services</p>
+              <h2>For weddings, conferences, ceremonies, and corporate events.</h2>
+              <p>
+                Book Amos Pride when your event needs a confident master of ceremonies who can manage the room, protect the flow, introduce speakers, lift the audience, and keep the program moving with polish.
+              </p>
+            </div>
+
+            <div className="panel-note">
+              <ul className="editorial-list">
+                {bookingServices.map((service) => (
+                  <li key={service}>{service}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section className="events-section" id="events">
           <div className="container section-container">
             <div className="events-shell">
               <div className="events-header">
                 <div className="events-heading">
-                  <p className="section-label">Featured Events</p>
+                  <p className="section-label">Featured MC Events</p>
                 </div>
 
                 <p className="events-intro">
-                  Bringing elegance, energy, and seamless flow to every celebration
+                  Bringing elegance, energy, and seamless program flow to every celebration
                 </p>
               </div>
 
@@ -351,7 +394,7 @@ export default function App() {
         <section className="work-section" id="work">
           <div className="container section-container">
             <div className="work-heading">
-              <p className="section-label">Broadcast Experience</p>
+              <p className="section-label">Broadcast and Hosting Experience</p>
             </div>
 
             <div className="experience-grid">
@@ -403,6 +446,7 @@ export default function App() {
                       preload="none"
                       aria-label={item.title}
                       ref={index === 0 ? firstAudioRef : null}
+                      onPlay={() => handleMediaPlay(item)}
                     >
                       <source src={item.src} type="audio/mpeg" />
                     </audio>
@@ -416,9 +460,9 @@ export default function App() {
         <section className="contact-section" id="contact">
           <div className="container section-container contact-grid">
             <div className="contact-copy">
-              <p className="section-label">Contact</p>
+              <p className="section-label">Book Amos Pride</p>
               <p>
-                Ready to host, present, or collaborate? Let’s create something impactful together.
+                Planning a wedding, conference, ceremony, or corporate event? Book Amos Pride as your MC and create a smooth, memorable program for your guests.
               </p>
             </div>
 
@@ -428,6 +472,7 @@ export default function App() {
                   className="contact-item"
                   href={item.href}
                   key={item.label}
+                  onClick={() => handleContactClick(item)}
                   rel={item.external ? "noreferrer" : undefined}
                   target="_blank"
                 >

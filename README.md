@@ -1,5 +1,19 @@
 # React + Vite
 
+## Google Analytics
+
+Set `VITE_GA_MEASUREMENT_ID` to your Google Analytics 4 measurement ID before building or deploying.
+
+```env
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+The app sends the default page view plus custom `media_play` and `contact_click` events.
+
+## Vercel Analytics
+
+Vercel Analytics is installed through `@vercel/analytics` and mounted in the React entry point. It starts collecting visits automatically after the project is deployed on Vercel with Web Analytics enabled.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
